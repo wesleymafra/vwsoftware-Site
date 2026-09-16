@@ -116,6 +116,28 @@ img {
   max-width: 760px;
 }
 
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.hero-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid rgba(0, 103, 216, 0.16);
+  border-radius: 999px;
+  color: var(--blue);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 24px rgba(7, 26, 53, 0.06);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .eyebrow {
   margin: 0 0 16px;
   color: var(--blue);
