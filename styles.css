@@ -90,9 +90,9 @@ img {
   width: 194px;
   min-height: 126px;
   padding: 8px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.72);
+  border: 1px solid #ffffff;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
   box-shadow: 0 14px 28px rgba(7, 24, 47, 0.14);
 }
 
