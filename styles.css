@@ -642,6 +642,59 @@ h3 {
   margin: 0;
 }
 
+.floating-social {
+  position: fixed;
+  z-index: 25;
+  right: 22px;
+  bottom: 22px;
+  display: grid;
+  gap: 10px;
+}
+
+.floating-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  color: #ffffff;
+  box-shadow: 0 12px 26px rgba(7, 24, 47, 0.24);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.floating-social-link:hover,
+.floating-social-link:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(7, 24, 47, 0.32);
+}
+
+.floating-social-link.whatsapp {
+  background: #16a765;
+}
+
+.floating-social-link.instagram {
+  background: linear-gradient(145deg, #5b2c9d, #d62976 55%, #f5a623);
+}
+
+.floating-social-link svg {
+  width: 25px;
+  height: 25px;
+  fill: currentColor;
+}
+
+.floating-social-link.instagram svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+}
+
+.floating-social-link.instagram .instagram-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
 @media (min-width: 1500px) {
   :root {
     --container: 1240px;
@@ -771,6 +824,22 @@ h3 {
   body::before {
     background-size: 620px auto;
     opacity: 0.035;
+  }
+
+  .floating-social {
+    right: 14px;
+    bottom: 14px;
+    gap: 8px;
+  }
+
+  .floating-social-link {
+    width: 46px;
+    height: 46px;
+  }
+
+  .floating-social-link svg {
+    width: 22px;
+    height: 22px;
   }
 
   .hero-actions,
