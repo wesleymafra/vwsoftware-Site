@@ -87,12 +87,17 @@ img {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  width: 172px;
+  width: 214px;
   min-height: 148px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 28px rgba(7, 24, 47, 0.14);
 }
 
 .brand img {
-  width: 164px;
+  width: 194px;
   filter: drop-shadow(0 18px 28px rgba(7, 24, 47, 0.2));
 }
 
@@ -680,12 +685,13 @@ h3 {
   }
 
   .brand {
-    width: 154px;
+    width: 174px;
     min-height: 112px;
+    padding: 10px 12px;
   }
 
   .brand img {
-    width: 146px;
+    width: 154px;
   }
 
   .main-nav {
