@@ -52,3 +52,5 @@
 .nav>a:hover{color:#b9f5ff}
 .nav-cta{background:linear-gradient(135deg,#0878ed,#12c9ee);box-shadow:0 12px 30px rgba(3,22,47,.24)}
 @media(max-width:900px){.nav{background:linear-gradient(135deg,#d87542,#17457e);color:#fff}}
+
+footer{background:linear-gradient(110deg,#d87542 0%,#8f6370 48%,#17457e 100%)}
