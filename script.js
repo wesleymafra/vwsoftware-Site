@@ -46,7 +46,7 @@ if (erpFeatures) {
 const quotePopup = document.querySelector('.quote-popup');
 const quotePopupClose = document.querySelector('.quote-popup-close');
 const quotePopupButton = document.querySelector('.quote-popup-button');
-const quotePopupDelay = 8 * 60 * 1000;
+const quotePopupDelay = 45 * 1000;
 const quotePopupTick = 1000;
 let quotePopupActiveTime = 0;
 let quotePopupTimer;
