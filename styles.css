@@ -21,3 +21,7 @@
 
 /* The ERP showcase uses one high-resolution composition to keep every screen readable. */
 .erp-screens{background:url('assets/erp-showcase.png') center/contain no-repeat}.erp-screens .erp-screen{display:none}
+
+@media(min-width:901px){.erp-screens{left:40%;right:12px;bottom:18px;height:350px}}
+@media(min-width:641px) and (max-width:900px){.erp-screens{left:39%;right:14px;bottom:20px;height:315px}}
+@media(max-width:640px){.erp-showcase{min-height:610px;padding-bottom:320px}.erp-screens{bottom:18px;height:285px}}
