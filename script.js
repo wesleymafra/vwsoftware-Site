@@ -22,3 +22,27 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+const quotePopup = document.querySelector('.quote-popup');
+const quotePopupClose = document.querySelector('.quote-popup-close');
+const quotePopupButton = document.querySelector('.quote-popup-button');
+
+const closeQuotePopup = () => {
+  quotePopup.classList.remove('open');
+};
+
+window.addEventListener('load', () => {
+  window.setTimeout(() => quotePopup.classList.add('open'), 900);
+});
+
+quotePopupClose.addEventListener('click', closeQuotePopup);
+
+quotePopup.addEventListener('click', (event) => {
+  if (event.target === quotePopup) closeQuotePopup();
+});
+
+quotePopupButton.addEventListener('click', closeQuotePopup);
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && quotePopup.classList.contains('open')) closeQuotePopup();
+});
