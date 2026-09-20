@@ -25,3 +25,18 @@
 @media(min-width:901px){.erp-screens{left:40%;right:12px;bottom:18px;height:350px}}
 @media(min-width:641px) and (max-width:900px){.erp-screens{left:39%;right:14px;bottom:20px;height:315px}}
 @media(max-width:640px){.erp-showcase{min-height:610px;padding-bottom:320px}.erp-screens{bottom:18px;height:285px}}
+
+/* Reforça a vitrine do ERP para ela ter o mesmo peso visual do app de pizzaria. */
+.erp-showcase{min-height:640px;padding:46px 42px;background:linear-gradient(135deg,#03142d 0%,#063d7c 54%,#087fc6 100%)}
+.erp-showcase .erp-copy{width:34%;height:100%;justify-content:flex-start}
+.erp-showcase h3{font-size:34px;margin:20px 0 14px}
+.erp-showcase p{font-size:15px;line-height:1.7;max-width:340px}
+.erp-showcase .erp-copy ul{margin:20px 0}
+.erp-showcase .erp-copy li{margin:14px 0;font-size:13px}
+.erp-screens{left:32%;right:12px;bottom:18px;height:430px;background:none;display:flex;align-items:center;justify-content:center}
+.erp-screens:before{content:'';position:absolute;inset:6% 0 4%;border:1px solid rgba(155,243,255,.25);border-radius:24px;background:rgba(2,18,43,.28);box-shadow:0 20px 60px rgba(0,0,0,.25),inset 0 0 50px rgba(18,201,238,.08)}
+.erp-screens{background:url('assets/erp-showcase.png') center/contain no-repeat;filter:drop-shadow(0 28px 32px rgba(0,0,0,.35))}
+.erp-showcase:after{background:rgba(255,255,255,.11);filter:blur(2px)}
+
+@media(max-width:900px){.erp-showcase{min-height:590px;padding:38px 32px}.erp-showcase .erp-copy{width:39%}.erp-screens{left:35%;right:10px;height:350px;bottom:20px}.erp-showcase h3{font-size:29px}}
+@media(max-width:640px){.erp-showcase{min-height:720px;padding:30px 24px 330px}.erp-showcase .erp-copy{width:auto;height:auto}.erp-showcase h3{font-size:28px}.erp-showcase .erp-copy p{max-width:none}.erp-screens{left:8px;right:8px;bottom:18px;height:300px}.erp-screens:before{inset:5% 1% 2%;border-radius:18px}}
