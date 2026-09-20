@@ -1,34 +1,47 @@
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 
-toggle.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', open);
+const setMenuState = (open) => {
+  if (!toggle || !nav) return;
+
+  nav.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
   toggle.textContent = open ? '✕' : '☰';
-});
+};
 
-document.querySelectorAll('.nav a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.textContent = '☰';
+if (toggle && nav) {
+  toggle.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
+
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenuState(false));
   });
-});
+}
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.12 });
+const revealElements = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  revealElements.forEach((element) => observer.observe(element));
+} else {
+  revealElements.forEach((element) => element.classList.add('visible'));
+}
 
 const erpFeatures = document.querySelector('.erp-copy ul');
-['Sistema de Ponto, RH e DP', 'Sistema de PDV'].forEach((feature) => {
-  const item = document.createElement('li');
-  item.textContent = feature;
-  erpFeatures.appendChild(item);
-});
+if (erpFeatures) {
+  ['Sistema de Ponto, RH e DP', 'Sistema de PDV'].forEach((feature) => {
+    const item = document.createElement('li');
+    item.textContent = feature;
+    erpFeatures.appendChild(item);
+  });
+}
 
 const quotePopup = document.querySelector('.quote-popup');
 const quotePopupClose = document.querySelector('.quote-popup-close');
@@ -40,11 +53,11 @@ let quotePopupTimer;
 let quotePopupShown = false;
 
 const closeQuotePopup = () => {
-  quotePopup.classList.remove('open');
+  quotePopup?.classList.remove('open');
 };
 
 const openQuotePopup = () => {
-  if (quotePopupShown) return;
+  if (quotePopupShown || !quotePopup) return;
 
   quotePopupShown = true;
   window.clearInterval(quotePopupTimer);
@@ -75,14 +88,14 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-quotePopupClose.addEventListener('click', closeQuotePopup);
+quotePopupClose?.addEventListener('click', closeQuotePopup);
 
-quotePopup.addEventListener('click', (event) => {
+quotePopup?.addEventListener('click', (event) => {
   if (event.target === quotePopup) closeQuotePopup();
 });
 
-quotePopupButton.addEventListener('click', closeQuotePopup);
+quotePopupButton?.addEventListener('click', closeQuotePopup);
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && quotePopup.classList.contains('open')) closeQuotePopup();
+  if (event.key === 'Escape' && quotePopup?.classList.contains('open')) closeQuotePopup();
 });
