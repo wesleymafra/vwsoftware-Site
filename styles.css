@@ -40,3 +40,8 @@
 
 @media(max-width:900px){.erp-showcase{min-height:590px;padding:38px 32px}.erp-showcase .erp-copy{width:39%}.erp-screens{left:35%;right:10px;height:350px;bottom:20px}.erp-showcase h3{font-size:29px}}
 @media(max-width:640px){.erp-showcase{min-height:720px;padding:30px 24px 330px}.erp-showcase .erp-copy{width:auto;height:auto}.erp-showcase h3{font-size:28px}.erp-showcase .erp-copy p{max-width:none}.erp-screens{left:8px;right:8px;bottom:18px;height:300px}.erp-screens:before{inset:5% 1% 2%;border-radius:18px}}
+
+/* Cores do modal inspiradas no degradê de referência: laranja na logo e azul no CTA. */
+.quote-popup-card{background:linear-gradient(155deg,#17457e 0%,#485574 38%,#bd6b50 72%,#d87542 100%)}
+.quote-popup-media{background:linear-gradient(145deg,#17457e 0%,#3f587d 46%,#b96750 100%)}
+.quote-popup-copy{background:linear-gradient(180deg,rgba(207,111,75,.62) 0%,rgba(146,91,91,.28) 43%,rgba(21,71,125,.7) 100%)}
