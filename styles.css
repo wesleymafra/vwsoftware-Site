@@ -57,3 +57,11 @@ footer{background:linear-gradient(110deg,#d87542 0%,#8f6370 48%,#17457e 100%)}
 
 /* Logo da referência no rodapé e no modal, sem alterar a marca do cabeçalho. */
 footer .footer-brand img,.quote-popup-logo{content:url('assets/vwsoftware-logo-reference.png');filter:none}
+
+.chart-bar{height:35%}
+.chart-bar.bar-55{height:55%}
+.chart-bar.bar-43{height:43%}
+.chart-bar.bar-78{height:78%}
+.chart-bar.bar-68{height:68%}
+.chart-bar.bar-92{height:92%}
+.chart-bar.bar-81{height:81%}

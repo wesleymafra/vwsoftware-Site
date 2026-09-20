@@ -47,36 +47,52 @@ const quotePopup = document.querySelector('.quote-popup');
 const quotePopupClose = document.querySelector('.quote-popup-close');
 const quotePopupButton = document.querySelector('.quote-popup-button');
 const quotePopupDelay = 45 * 1000;
-const quotePopupTick = 1000;
 let quotePopupActiveTime = 0;
 let quotePopupTimer;
+let quotePopupStartedAt;
 let quotePopupShown = false;
+let quotePopupReturnFocus;
 
 const closeQuotePopup = () => {
-  quotePopup?.classList.remove('open');
+  if (!quotePopup) return;
+
+  quotePopup.classList.remove('open');
+  quotePopup.setAttribute('aria-hidden', 'true');
+  quotePopupReturnFocus?.focus({ preventScroll: true });
 };
 
 const openQuotePopup = () => {
   if (quotePopupShown || !quotePopup) return;
 
   quotePopupShown = true;
-  window.clearInterval(quotePopupTimer);
+  quotePopupReturnFocus = document.activeElement instanceof HTMLElement
+    ? document.activeElement
+    : null;
+  window.clearTimeout(quotePopupTimer);
   quotePopup.classList.add('open');
+  quotePopup.setAttribute('aria-hidden', 'false');
+  quotePopupClose?.focus({ preventScroll: true });
 };
 
 const startQuotePopupTimer = () => {
   if (quotePopupShown || quotePopupTimer || document.visibilityState !== 'visible') return;
 
-  quotePopupTimer = window.setInterval(() => {
-    quotePopupActiveTime += quotePopupTick;
-    if (quotePopupActiveTime >= quotePopupDelay) openQuotePopup();
-  }, quotePopupTick);
+  quotePopupStartedAt = Date.now();
+  quotePopupTimer = window.setTimeout(() => {
+    quotePopupActiveTime += Date.now() - quotePopupStartedAt;
+    openQuotePopup();
+  }, Math.max(quotePopupDelay - quotePopupActiveTime, 0));
 };
 
 const pauseQuotePopupTimer = () => {
-  window.clearInterval(quotePopupTimer);
+  if (!quotePopupTimer) return;
+
+  quotePopupActiveTime += Date.now() - quotePopupStartedAt;
+  window.clearTimeout(quotePopupTimer);
   quotePopupTimer = undefined;
 };
+
+quotePopup?.setAttribute('aria-hidden', 'true');
 
 window.addEventListener('load', startQuotePopupTimer);
 
