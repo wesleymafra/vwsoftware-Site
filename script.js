@@ -23,6 +23,13 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
+const erpFeatures = document.querySelector('.erp-copy ul');
+['Sistema de Ponto, RH e DP', 'Sistema de PDV'].forEach((feature) => {
+  const item = document.createElement('li');
+  item.textContent = feature;
+  erpFeatures.appendChild(item);
+});
+
 const quotePopup = document.querySelector('.quote-popup');
 const quotePopupClose = document.querySelector('.quote-popup-close');
 const quotePopupButton = document.querySelector('.quote-popup-button');
