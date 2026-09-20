@@ -26,13 +26,46 @@ document.querySelectorAll('.reveal').forEach((element) => observer.observe(eleme
 const quotePopup = document.querySelector('.quote-popup');
 const quotePopupClose = document.querySelector('.quote-popup-close');
 const quotePopupButton = document.querySelector('.quote-popup-button');
+const quotePopupDelay = 8 * 60 * 1000;
+const quotePopupTick = 1000;
+let quotePopupActiveTime = 0;
+let quotePopupTimer;
+let quotePopupShown = false;
 
 const closeQuotePopup = () => {
   quotePopup.classList.remove('open');
 };
 
-window.addEventListener('load', () => {
-  window.setTimeout(() => quotePopup.classList.add('open'), 900);
+const openQuotePopup = () => {
+  if (quotePopupShown) return;
+
+  quotePopupShown = true;
+  window.clearInterval(quotePopupTimer);
+  quotePopup.classList.add('open');
+};
+
+const startQuotePopupTimer = () => {
+  if (quotePopupShown || quotePopupTimer || document.visibilityState !== 'visible') return;
+
+  quotePopupTimer = window.setInterval(() => {
+    quotePopupActiveTime += quotePopupTick;
+    if (quotePopupActiveTime >= quotePopupDelay) openQuotePopup();
+  }, quotePopupTick);
+};
+
+const pauseQuotePopupTimer = () => {
+  window.clearInterval(quotePopupTimer);
+  quotePopupTimer = undefined;
+};
+
+window.addEventListener('load', startQuotePopupTimer);
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    startQuotePopupTimer();
+  } else {
+    pauseQuotePopupTimer();
+  }
 });
 
 quotePopupClose.addEventListener('click', closeQuotePopup);
