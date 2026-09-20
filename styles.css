@@ -54,3 +54,6 @@
 @media(max-width:900px){.nav{background:linear-gradient(135deg,#d87542,#17457e);color:#fff}}
 
 footer{background:linear-gradient(110deg,#d87542 0%,#8f6370 48%,#17457e 100%)}
+
+/* Logo da referência no rodapé e no modal, sem alterar a marca do cabeçalho. */
+footer .footer-brand img,.quote-popup-logo{content:url('assets/vwsoftware-logo-reference.png');filter:none}
