@@ -36,7 +36,7 @@ if ('IntersectionObserver' in window) {
 
 const erpFeatures = document.querySelector('.erp-copy ul');
 if (erpFeatures) {
-  ['Sistema de Ponto, RH e DP', 'Sistema de PDV'].forEach((feature) => {
+  ['Sistema de Ponto, RH e DP com assinatura digital e validade jurídica', 'Sistema de PDV'].forEach((feature) => {
     const item = document.createElement('li');
     item.textContent = feature;
     erpFeatures.appendChild(item);
