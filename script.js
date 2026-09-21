@@ -1,5 +1,31 @@
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
+const contactForm = document.querySelector('.contact-form');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const nome = String(formData.get('nome') || '').trim();
+    const empresa = String(formData.get('empresa') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const solucao = String(formData.get('solucao') || '').trim();
+    const mensagem = String(formData.get('mensagem') || '').trim();
+    const subject = `Solicitação de contato${empresa ? ` - ${empresa}` : ''}`;
+    const body = [
+      `Nome: ${nome}`,
+      `Empresa: ${empresa || 'Não informado'}`,
+      `E-mail: ${email}`,
+      `Solução de interesse: ${solucao}`,
+      '',
+      'Mensagem:',
+      mensagem || 'Não informado'
+    ].join('\n');
+
+    window.location.href = `mailto:contato@vwsoftware.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
 
 const setMenuState = (open) => {
   if (!toggle || !nav) return;
