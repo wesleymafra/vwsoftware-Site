@@ -1,41 +1,6 @@
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 
-// Redes sociais: somente o WhatsApp fica flutuante; Instagram e Facebook ficam no rodapé.
-const floatingInstagram = document.querySelector('.floating-social .instagram');
-if (floatingInstagram) {
-  floatingInstagram.remove();
-}
-
-const footerBrand = document.querySelector('.footer-brand');
-if (footerBrand) {
-  const footerSocial = document.createElement('div');
-  footerSocial.className = 'footer-social';
-  footerSocial.setAttribute('aria-label', 'Redes sociais');
-  footerSocial.innerHTML = `
-    <a class="footer-social-link instagram" href="https://www.instagram.com/vwsoftware.com.br/" target="_blank" rel="noreferrer" aria-label="Abrir o Instagram da VW Software" title="Instagram">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle class="instagram-dot" cx="17.5" cy="6.5" r="1" /></svg>
-    </a>
-    <a class="footer-social-link facebook" href="https://www.facebook.com/vwsoftware.com.br/" target="_blank" rel="noreferrer" aria-label="Abrir o Facebook da VW Software" title="Facebook">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4a22 22 0 0 0-2.4-.1c-2.4 0-4.1 1.5-4.1 4.2V10H8v3h2.5v8h3.2Z" /></svg>
-    </a>`;
-  footerBrand.appendChild(footerSocial);
-}
-
-const supportLink = document.querySelector('.support-actions .text-link');
-if (supportLink) {
-  supportLink.href = 'mailto:suporte@vwsoftware.com.br';
-  supportLink.textContent = 'suporte@vwsoftware.com.br →';
-}
-
-const contactColumn = document.querySelector('footer .footer-grid > div:last-child');
-if (contactColumn && !contactColumn.querySelector('a[href="mailto:suporte@vwsoftware.com.br"]')) {
-  const supportEmail = document.createElement('a');
-  supportEmail.href = 'mailto:suporte@vwsoftware.com.br';
-  supportEmail.textContent = 'suporte@vwsoftware.com.br';
-  contactColumn.appendChild(supportEmail);
-}
-
 const setMenuState = (open) => {
   if (!toggle || !nav) return;
 

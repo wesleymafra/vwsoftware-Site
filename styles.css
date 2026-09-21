@@ -65,4 +65,12 @@ footer .footer-brand img,.quote-popup-logo{content:url('assets/vwsoftware-logo-r
 .chart-bar.bar-68{height:68%}
 .chart-bar.bar-92{height:92%}
 .chart-bar.bar-81{height:81%}
+
+.footer-social{display:flex;align-items:center;gap:10px;margin-top:18px}
+.footer-social-link{display:inline-flex!important;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(255,255,255,.65);border-radius:50%;color:#fff;box-shadow:0 8px 18px rgba(7,24,47,.2);transition:.18s}
+.footer-social-link:hover{transform:translateY(-3px)}
+.footer-social-link svg{width:21px;height:21px;fill:currentColor}
+.footer-social-link.instagram{border-radius:11px}
+.footer-social-link.facebook{background:#1877f2}
+.footer-social-link.facebook svg{fill:currentColor}
 .footer-social{display:flex;gap:10px;margin-top:22px}.footer-social-link{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;color:#fff;background:#244a72;transition:.18s}.footer-social-link:hover{transform:translateY(-3px)}.footer-social-link.instagram{border-radius:10px;background:linear-gradient(145deg,#5b2c9d,#d62976 55%,#f5a623)}.footer-social-link.facebook{background:#1877f2}.footer-social-link svg{width:19px;height:19px;fill:currentColor}.footer-social-link.instagram svg{fill:none;stroke:currentColor;stroke-width:1.9}.footer-social-link.instagram .instagram-dot{fill:currentColor;stroke:none}.floating-social .instagram{display:none}
