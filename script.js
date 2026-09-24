@@ -1,6 +1,12 @@
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const contactForm = document.querySelector('.contact-form');
+const whatsappLink = document.querySelector('.floating-social-link.whatsapp');
+
+if (whatsappLink) {
+  const whatsappMessage = 'Olá, quero conhecer as soluções da VW Software.';
+  whatsappLink.href = `https://wa.me/5511972759289?text=${encodeURIComponent(whatsappMessage)}`;
+}
 
 if (contactForm) {
   contactForm.addEventListener('submit', (event) => {
